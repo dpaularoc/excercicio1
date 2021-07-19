@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="assets/logo.png" class="logo"> <!-- espaço para colocar logo-->
+            <nav>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Collections</a></li>
+                    <li><a href="">Category</a></li>
+                </ul>
+            </nav>
+            <button id="open">
+                Sale Black Friday
+                </button>
+
+            <img src="assets/login.png" class="login">
+            <img src="assets/bag.png" class="bag">
+            
+
+        </div>
+        <div class="content">
+            <a href="" class="btn">Inverno 2021</a>
+            <h1>Conheça a nova coleção</h1>
+            <p>Assine nossa newletter e não perca as novidades.</p>
+
+              
+            <div class="arrow-icons">        
+                <img src="assets/esquerda.png" class="esquerda">
+                <img src="assets/direita.png" class="direita">
+            </div>
+        </div>
+        
+        
+        <img src="assets/img3.png" class="feature-img">
+        
+
+        <!--modalpopup-->
+            
+        
+        <div class="modal-container" id="modal-container">
+            <div class="modal">
+                <h1>Sale Black Friday</h1>
+                <p>Cadastre-se e receba nossas ofertas em primeira mão</p><br>
+
+                <div id="content2">
+                    <form action= "" id="form">
+                        <input type="text" placeholder="Nome Completo" id="nome">
+                        <input type="text" placeholder="E-mail" id="email">
+                        <input type="submit" value="Cadastrar" id="button">
+                   </form>
+                    
+                    <button id="close">
+                        Fechar
+                    </button>
+                </div>
+
+                
+            </div>
+        </div>       
+    
+    </div>  
+
+    
+</body>
+<script type="text/javascript">
+    const open = document.getElementById('open');
+    const modal_container = document.getElementById('modal-container');
+    const close = document.getElementById('close')
+
+    open.addEventListener('click',() => {
+        modal_container.classList.add('show');
+    })
+
+    close.addEventListener('click',() => {
+        modal_container.classList.remove('show');
+    })
+    //localstorage
+    const form =document.getElementById('form')
+    form.addEventListener('submit',(e) =>{
+        e.preventDefault();
+
+        let nome = document.getElementById('nome').value;
+        let email = document.getElementById('email').value;
+
+        let data ={
+            nome,
+            email
+        }
+
+        let convertData = JSON.stringify(data);
+        localStorage.setItem('lead', convertData)
+
+        let content = document.getElementById('content2')
+
+        
+    })
+</script>
+
+</html>
+  
